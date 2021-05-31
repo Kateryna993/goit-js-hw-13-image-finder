@@ -1,12 +1,15 @@
 {
-  "name": "parcel-project-template",
+  "name": "goit-js-hw-13-image-finder",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://Kateryna993.github.io/goit-js-hw-13-image-finder",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-13-image-finder/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "basiclightbox": "^5.0.4"
+    "basiclightbox": "^5.0.4",
+    "parcel-plugin-nuke-dist": "^1.0.1"
   }
 }

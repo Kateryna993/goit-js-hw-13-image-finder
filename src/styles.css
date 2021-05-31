@@ -10,6 +10,11 @@ body {
   line-height: 1.5;
   color: #2a2a2a;
   background-color: lightcyan;
+  text-align: center;
+}
+
+.finder-title {
+  color: darkslategrey;
 }
 
 .search-form {
