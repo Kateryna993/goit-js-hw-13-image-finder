@@ -3,6 +3,7 @@ import imgCardTmpl from '../templates/image-card.hbs';
 import ImagesApiService from './images-service.js';
 
 import LoadMoreBtn from './components/load-more-btn.js';
+import onFetchError from './notification.js'
 
 const refs = getRefs();
 
@@ -17,13 +18,20 @@ const imagesApiService = new ImagesApiService();
 
 refs.searchForm.addEventListener('submit', onSearchImg);
 
-loadMoreBtn.refs.button.addEventListener('click', onLoadImgs);
+loadMoreBtn.refs.button.addEventListener('click', () => {
+  onLoadImgs();
+  scrollToBottomPg();
+});
 
 //
 function onSearchImg(e) {
   e.preventDefault();
 
   imagesApiService.query = e.currentTarget.elements.query.value;
+
+  if (!imagesApiService.query) {
+    return onFetchError();
+  }
   loadMoreBtn.show();
   imagesApiService.resetPage();
   clearArticlesContainer();
@@ -33,10 +41,11 @@ function onSearchImg(e) {
 // load images
 function onLoadImgs() {
   loadMoreBtn.disable();
-  imagesApiService.fetchImages().then(hits => {
+
+  imagesApiService.fetchImages()
+  .then(hits => {
     renderImgCard(hits);
     loadMoreBtn.enable();
-    scrollToBottomPg();
   });
 }
 
