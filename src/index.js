@@ -1,1 +1,3 @@
-import apiservice from './js/apiService.js'
+import './js/apiService.js'
+
+import './js/lightBox.js'

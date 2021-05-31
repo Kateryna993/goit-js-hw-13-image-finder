@@ -13,7 +13,11 @@
       <input type="text" id="searchQuery" name="query" autocomplete="off" placeholder="Search images..." />
     </form>
 
-    <button type="button" class="btn load-more-btn" data-action="load-more">
+    <ul class="gallery js-gallery-container">
+      <!-- Список <li> с карточками изображений -->
+    </ul>
+
+    <button type="button" class="btn load-more-btn button" data-action="load-more">
       <span
         class="spinner-border spinner-border-sm spinner is-hidden"
         role="status"
@@ -22,10 +26,8 @@
 
       <span class="label">Load more</span>
     </button>
+    <button class="top-btn"></button>
 
-    <ul class="gallery js-gallery-container">
-      <!-- Список <li> с карточками изображений -->
-    </ul>
   </body>
   <script src="./index.js"></script>
 </html>
